@@ -47,7 +47,15 @@ A better way is to make a copy of the data structure, update it, and reset it. U
 
 # Design State
 
-Focus on minimizing State.
+## Minimize State
+Focus on minimizing State. If a variable `x` is going to change. It should be state. Otherwise use props.
+
+Example model a `Person`. Lets say `first` and `last` don't change. So use them in props. If they had a `mood` that would arguably be a `state` since it could change.
+
+## State should live in Parent
+
+Support downward data flow. Parent manages state and renders dumb child components. Debugging is easier because the state is centralized.
+
 
 # Best Practices
 
