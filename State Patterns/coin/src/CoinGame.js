@@ -28,7 +28,7 @@ class CoinGame extends Component {
         let heads = this.state.tosses.filter(c => c === HEADS).length
         let tails = this.state.tosses.filter(c => c === TAILS).length
         let imageSrc = this.state.tosses[this.state.tosses.length - 1] === HEADS ? HEADS_SRC : TAILS_SRC
-        return { flips: flips, heads: heads, tails: tails, imageSrc: imageSrc }
+        return { flips, heads, tails, imageSrc }
     }
 
     render() {
