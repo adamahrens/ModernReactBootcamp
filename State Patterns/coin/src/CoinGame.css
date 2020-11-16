@@ -1,0 +1,13 @@
+.Coin-button {
+    width: 15em;
+    padding: 1.5em;
+    border: 0px;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    font-size: x-large;
+}
+
+.Coin-button:hover {
+    background-color: darkslategrey;
+}
