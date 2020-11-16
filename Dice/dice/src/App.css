@@ -36,3 +36,70 @@
     transform: rotate(360deg);
   }
 }
+
+.dice-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.Dice {
+  color: slateblue;
+  font-size: 32px;
+  margin: 1em;
+}
+
+.wiggling {
+    animation: wiggle 1s ease;
+    animation-duration: 1s;
+}
+
+button {
+  width: 15em;
+  padding: 1.5em;
+  border: 0px;
+  border-radius: 10px;
+  color: white;
+  background-color: black;
+  margin-top: 3em;
+  font-size: x-large;
+}
+
+button:hover {
+  background-color: darkslateblue;
+  cursor: pointer;
+}
+
+@keyframes wiggle
+{
+    15%
+    {
+        -webkit-transform: translateX(15px) rotate3d(0, 0, 1, -15deg);
+        transform: translateX(15px) rotate3d(0, 0, 1, -15deg);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-15px) rotate3d(0, 0, 1, 13deg);
+        transform: translateX(-15px) rotate3d(0, 0, 1, 13deg);
+    }
+    50%
+    {
+        -webkit-transform: translateX(13px) rotate3d(0, 0, 1, -13deg);
+        transform: translateX(13px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-13px) rotate3d(0, 0, 1, 15deg);
+        transform: translateX(-13px) rotate3d(0, 0, 1, 15deg);
+    }
+    80%
+    {
+        -webkit-transform: translateX(12px) rotate3d(0, 0, 1, -10deg);
+        transform: translateX(12px rotate3d(0, 0, 1, -10deg));
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
