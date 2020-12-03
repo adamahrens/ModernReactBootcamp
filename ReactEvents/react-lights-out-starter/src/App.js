@@ -8,6 +8,10 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
+        <div className='App-container'>
+          <div className="neon">Lights</div>
+          <div className="flux">Out</div>
+        </div>
         <Board />
       </div>
     );
