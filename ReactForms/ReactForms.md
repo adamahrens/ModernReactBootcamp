@@ -87,7 +87,7 @@ class UserComponent extends Component {
                 <h1>Enter FullName</h1>
                 <form onSubmit={this.handleSubmit}>
                 <input type='text' placeholder='username' name='username' value={this.state.username} onChange={this.handleChange}>
-                <input type='text' placeholder='email' email='email' value={this.state.email} onChange={this.handleChange}>
+                <input type='text' placeholder='email' name='email' value={this.state.email} onChange={this.handleChange}>
                 <button>Confirm User</button>
                 </form>
             </div>
