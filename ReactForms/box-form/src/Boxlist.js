@@ -12,11 +12,12 @@ class BoxList extends Component {
         this.state = { boxes: [] }
         this.renderBoxes = this.renderBoxes.bind(this)
         this.addBox = this.addBox.bind(this)
+        this.removeBox = this.removeBox.bind(this)
     }
 
     renderBoxes() {
         return this.state.boxes.map(box => (
-            <Box key={box.id} width={box.width} height={box.height} color={box.color} />
+            <Box key={box.id} id={box.id} width={box.width} height={box.height} color={box.color} removeBox={this.removeBox} />
         ));
     }
 
@@ -24,6 +25,12 @@ class BoxList extends Component {
         let updatedBox = { ...box, id: uuid() }
         this.setState((prevState) => ({
             boxes: [...prevState.boxes, updatedBox]
+        }))
+    }
+
+    removeBox(id) {
+        this.setState((prevState) => ({
+            boxes: prevState.boxes.filter((b) => (b.id !== id))
         }))
     }
 
