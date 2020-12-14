@@ -28,8 +28,28 @@
     color: #C0392B;
     transition: all 0.3s;
     opacity: 0;
+    padding-left: 20px;
 }
 
 .Todo span:hover {
     color: #E74C3C;
+}
+
+.Todo-Form {
+    width: 800px;
+    margin: 50px auto 20px;
+}
+
+.Todo-Form input {
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #34495E;
+    outline: none;
+    font: 200 28px 'Ubuntu', sans-serif;
+    padding: 20px;
+    color: #34495E;
+    background-color: #ECF0F1;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
 }
