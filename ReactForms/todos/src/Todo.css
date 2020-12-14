@@ -17,3 +17,19 @@
 .Todo:hover span {
     opacity: 1;
 }
+
+.complete {
+    text-decoration: line-through;
+    color: #BDC3C7;
+}
+
+.Todo span {
+    float: right;
+    color: #C0392B;
+    transition: all 0.3s;
+    opacity: 0;
+}
+
+.Todo span:hover {
+    color: #E74C3C;
+}

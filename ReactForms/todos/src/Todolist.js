@@ -10,19 +10,48 @@ class TodoList extends Component {
         super(props)
         this.state = { todos: [] }
         this.addTodo = this.addTodo.bind(this)
+        this.removeTodo = this.removeTodo.bind(this)
+        this.toggleTodo = this.toggleTodo.bind(this)
+    }
+
+    componentDidMount() {
+        let todos = JSON.parse(localStorage.getItem("todos"));
+        if (todos == null) {
+            todos = []
+        }
+
+        this.setState({ todos });
     }
 
     addTodo(todo) {
-        let modifiedTodo = { ...todo, id: uuid() }
+        let modifiedTodo = { ...todo, id: uuid(), complete: false }
+        let todos = [...this.state.todos, modifiedTodo]
+        localStorage.setItem("todos", JSON.stringify(todos));
+        this.setState({ todos })
+    }
+
+    removeTodo(id) {
         this.setState((prevState) => ({
-            todos: [...prevState.todos, modifiedTodo]
+            todos: prevState.todos.filter((t) => (t.id !== id))
         }))
+    }
+
+    toggleTodo(id) {
+        const newTodos = this.state.todos.map(todo => {
+            if (todo.id === id) {
+                return { ...todo, complete: !todo.complete }
+            }
+
+            return todo
+        })
+
+        this.setState({ todos: newTodos })
     }
 
     renderTodos() {
         return (
             <ul>
-                { this.state.todos.map(todo => (<Todo key={todo.id} id={todo.id} todo={todo.todo} />))}
+                { this.state.todos.map(todo => (<Todo key={todo.id} id={todo.id} complete={todo.complete} todo={todo.todo} removeTodo={this.removeTodo} toggleTodo={this.toggleTodo} />))}
             </ul>
         )
     }
