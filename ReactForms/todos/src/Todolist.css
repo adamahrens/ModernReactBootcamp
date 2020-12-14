@@ -1,0 +1,25 @@
+
+.Todolist {
+    text-align: center;
+}
+
+.Todolist h1 {
+    font-size: 64px;
+    font-weight: 300;
+    margin: 80px 0 25px;
+    color: #2C3E50;
+}
+
+.Todolist h2 {
+    font-weight: 300;
+    color: #BDC3C7;
+}
+
+.Todolist h1 span {
+    font-weight: 700;
+}
+
+.Todolist ul {
+    width: 800px;
+    margin: 0 auto;
+}

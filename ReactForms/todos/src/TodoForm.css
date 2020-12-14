@@ -1,0 +1,29 @@
+.TodoForm {
+    width: 800px;
+    margin: 50px auto 20px;
+}
+
+.TodoForm input {
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #34495E;
+    outline: none;
+    font: 300 28px 'Ubuntu', sans-serif;
+    padding: 20px;
+    color: #34495E;
+    background-color: #ECF0F1;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+}
+
+.TodoForm button {
+   color: #34495E; 
+   background-color: #ECF0F1;
+   margin-top: 20px;
+   font-weight: 300;
+   font-size: 32px;
+   width: 400px;
+   height: 60px;
+   border: 1px solid #34495E;
+}
