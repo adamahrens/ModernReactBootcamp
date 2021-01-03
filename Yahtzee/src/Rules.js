@@ -56,15 +56,32 @@ class SumDistro extends Rule {
 }
 
 /** Check if full house (3-of-kind and 2-of-kind) */
-
-class FullHouse {
-  // TODO
+class FullHouse extends Rule {
+  evalRoll = dice => {
+    const freq = this.freq(dice);
+    return freq.length == 2 && freq.includes(2) && freq.includes(3) ? this.score : 0;
+  };
 }
 
 /** Check for small straights. */
+/** Can be 1,2,3,4 or 2,3,4,5, or 3,4,5,6 */
+class SmallStraight extends Rule {
+  evalRoll = dice => {
+    const set = new Set(dice);
+    if (set.has(1) && set.has(2) && set.has(3) && set.has(4)) {
+      return this.score
+    }
 
-class SmallStraight {
-  // TODO
+    if (set.has(5) && set.has(2) && set.has(3) && set.has(4)) {
+      return this.score
+    }
+
+    if (set.has(5) && set.has(6) && set.has(3) && set.has(4)) {
+      return this.score
+    }
+
+    return 0;
+  };
 }
 
 /** Check for large straights. */
@@ -72,7 +89,6 @@ class SmallStraight {
 class LargeStraight extends Rule {
   evalRoll = dice => {
     const d = new Set(dice);
-
     // large straight must be 5 different dice & only one can be a 1 or a 6
     return d.size === 5 && (!d.has(1) || !d.has(6)) ? this.score : 0;
   };
@@ -100,10 +116,10 @@ const threeOfKind = new SumDistro({ count: 3 });
 const fourOfKind = new SumDistro({ count: 4 });
 
 // full house scores as flat 25
-const fullHouse = "TODO";
+const fullHouse = new FullHouse({ score: 25 });
 
 // small/large straights score as 30/40
-const smallStraight = "TODO";
+const smallStraight = new SmallStraight({ score: 30 });
 const largeStraight = new LargeStraight({ score: 40 });
 
 // yahtzee scores as 50
