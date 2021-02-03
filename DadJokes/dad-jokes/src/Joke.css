@@ -1,0 +1,41 @@
+.Joke {
+    display: flex;
+    border-bottom: 2px solid #EEEEEE;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    padding: 1rem;
+}
+
+.Joke-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    margin-right: 1rem;
+}
+
+.Joke-buttons i {
+  font-size: 1.5em;
+  margin: 10px;
+  cursor: pointer;
+} 
+
+.Joke-buttons span {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    border: 3px solid red;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 300;
+    box-shadow: 4px 1px 34px rgba(72,72,72,0.75);
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.Joke-text {
+    width: 75%;
+    font-size: 1.2rem;
+}
