@@ -47,6 +47,10 @@ We have access to previousProps and previousState
 
 ```
 componentDidUpdate(prevProps, prevState) {
-    
+
 }
 ```
+
+# ComponentWillUnmount
+
+Perform necessary cleanup here, shutting down websockets, clear timers, cancel network requests          
