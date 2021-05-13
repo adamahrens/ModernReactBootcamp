@@ -4,6 +4,7 @@ import seedColors from './seedColors'
 import { generatePalette } from "./colorHelpers";
 import { Route, Switch } from 'react-router-dom';
 import { Component } from 'react';
+import React from 'react';
 
 class App extends Component {
 
