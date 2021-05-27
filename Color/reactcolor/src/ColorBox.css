@@ -60,6 +60,10 @@
     font-size: 12px;
 }
 
+.light-text {
+    color:white;
+}
+
 .see-more {
     position: absolute;
     bottom: 0px;
