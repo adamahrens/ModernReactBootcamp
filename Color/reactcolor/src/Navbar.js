@@ -33,15 +33,17 @@ class Navbar extends Component {
                     <Link to="/">colorPicker</Link>
                 </div>
 
-                <div className="Navbar-slider">
-                    <span>Level: {this.props.level}</span>
-                    <Slider
-                        defaultValue={this.props.level}
-                        min={100}
-                        max={900}
-                        step={100}
-                        onAfterChange={this.props.changeLevel} />
-                </div>
+                {this.props.showLevel && (
+                    <div className="Navbar-slider">
+                        <span>Level: {this.props.level}</span>
+                        <Slider
+                            defaultValue={this.props.level}
+                            min={100}
+                            max={900}
+                            step={100}
+                            onAfterChange={this.props.changeLevel} />
+                    </div>
+                )}
                 <div className="Navbar-select">
                     <Select value={this.state.format} onChange={this.handleChange}>
                         <MenuItem value="hex">HEX - #F2F2F2</MenuItem>
