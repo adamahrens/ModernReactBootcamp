@@ -1,12 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
+import TodoApp from './TodoApp';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header></header>
-    </div>
-  );
-}
-
-export default App;
+    <TodoApp />
+  )
+};
