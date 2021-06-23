@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Typography, Paper, AppBar, Toolbar, Grid } from "@material-ui/core";
 import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
+import { v4 as uuidv4 } from "uuid"
 
 /*
 TodoApp
@@ -12,16 +13,31 @@ TodoApp
 */
 
 export default function TodoApp() {
-    const examples = [
-        { id: 1, task: "Practice Guitar", completed: false },
-        { id: 2, task: "Work on React Hooks", completed: false },
-        { id: 3, task: "Go for a Run", completed: false },
-        { id: 4, task: "Read chapter of book", completed: true }
-    ]
+    const defaultTodos = JSON.parse(window.localStorage.getItem("todos") || "[]")
+    const [todos, setTodos] = useState(defaultTodos)
 
-    const [todos, setTodos] = useState(examples)
+    useEffect(() => {
+        // Write to local storage
+        window.localStorage.setItem("todos", JSON.stringify(todos))
+    }, [todos])
+
     const addTodo = newTodo => {
-        setTodos([...todos, { id: 5, task: newTodo, completed: false }])
+        setTodos([...todos, { id: uuidv4(), task: newTodo, completed: false }])
+    }
+
+    const removeTodo = id => {
+        const filteredTodos = todos.filter(todo => todo.id !== id)
+        setTodos(filteredTodos)
+    }
+
+    const updateTodo = (id, updatedTask) => {
+        const updatedTodos = todos.map(todo => todo.id === id ? { ...todo, task: updatedTask } : todo)
+        setTodos(updatedTodos)
+    }
+
+    const toggleTodo = id => {
+        const toggledTodos = todos.map(todo => todo.id === id ? { ...todo, completed: !todo.completed } : todo)
+        setTodos(toggledTodos)
     }
 
     return (
@@ -31,8 +47,12 @@ export default function TodoApp() {
                     <Typography color='inherit'>Todos w/ Hooks</Typography>
                 </Toolbar>
             </AppBar>
-            <TodoForm add={addTodo} />
-            <TodoList todos={todos} />
+            <Grid container justify="center" style={{ marginTop: "1rem" }}>
+                <Grid item xs={11} md={8} lg={4}>
+                    <TodoForm add={addTodo} />
+                    <TodoList todos={todos} remove={removeTodo} toggle={toggleTodo} update={updateTodo} />
+                </Grid>
+            </Grid>
         </Paper>
     )
 }
