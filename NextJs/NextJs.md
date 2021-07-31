@@ -14,3 +14,5 @@ Next makes assumption about your app. You have a directory called `pages` and ea
 The `Link` tag adds an `onClick` to the `a` tag. So if you really wanted to you could through it in a `span` which will respond to the clicking of it.
 
 Components vs Pages. Having a navbar you wouldn't want a page for it
+
+We could include the navbar in each page but that can be tediuous. So we need to override `_app.js` to include any component for all pages.
