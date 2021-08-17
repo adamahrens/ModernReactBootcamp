@@ -9,11 +9,15 @@ function useLocalStorageState(key, defaultVal) {
     } catch (e) {
       value = defaultVal;
     }
+
     return value;
   });
+
   useEffect(() => {
     window.localStorage.setItem(key, JSON.stringify(state));
   }, [state]);
+
   return [state, setState];
 }
+
 export { useLocalStorageState };
