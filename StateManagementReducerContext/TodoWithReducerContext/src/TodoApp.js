@@ -1,6 +1,7 @@
 import React from "react";
 import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
+import ReducerExample from './ReducerExample';
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
@@ -21,7 +22,7 @@ function TodoApp() {
     >
       <AppBar color='primary' position='static' style={{ height: "64px" }}>
         <Toolbar>
-          <Typography color='inherit'>TODOS WITH CONTEXTS</Typography>
+          <Typography color='inherit'>TODOS WITH CONTEXTS & REDUCERS</Typography>
         </Toolbar>
       </AppBar>
       <Grid container justify='center' style={{ marginTop: "1rem" }}>
@@ -30,6 +31,7 @@ function TodoApp() {
             <TodoForm />
             <TodoList />
           </TodosProvider>
+          <ReducerExample />
         </Grid>
       </Grid>
     </Paper>
